@@ -9,6 +9,9 @@
         </a>
     </div>
     <hr class="horizontal dark mt-0">
+    @php
+        $sideBarConent = [];
+    @endphp
     <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
