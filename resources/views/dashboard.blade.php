@@ -4,13 +4,13 @@
     <div>
         <div class="d-flex justify-content-end align-items-center">
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
                 <label class="btn btn-outline-secondary btn-sm" for="btnradio1">Year</label>
 
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
                 <label class="btn btn-outline-secondary btn-sm" for="btnradio2">Month</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
                 <label class="btn btn-outline-secondary btn-sm" for="btnradio3">Day</label>
             </div>
         </div>
