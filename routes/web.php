@@ -57,9 +57,9 @@ Route::group(['middleware' => 'auth'], function () {
         return view('static-sign-up');
     })->name('sign-up');
 
-    Route::get('/logout', [SessionsController::class, 'destroy']);
-    Route::get('/user-profile', [InfoUserController::class, 'create']);
-    Route::post('/user-profile', [InfoUserController::class, 'store']);
+    Route::get('/logout', [SessionsController::class, 'destroy'])->name('');
+    Route::get('/user-profile', [InfoUserController::class, 'create'])->name('user-profile');
+    Route::post('/user-profile', [InfoUserController::class, 'store'])->name('user-profile');
     Route::get('/login', function () {
         return view('dashboard');
     })->name('sign-up');
