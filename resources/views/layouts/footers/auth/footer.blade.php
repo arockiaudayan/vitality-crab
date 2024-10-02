@@ -7,10 +7,8 @@
                     <script>
                         document.write(new Date().getFullYear())
                     </script>, made with <i class="fa fa-heart"></i> by
-                    <a href="https://www.linkedin.com/in/prakash-bosco-5a9520117/" class="font-weight-bold"
-                        target="_blank">@prakashbosco</a> &amp;
-                    <a style="color: #252f40;" href="www.linkedin.com/in/arockia-udayan-b2229751"
-                        class="font-weight-bold ml-1" target="_blank">@arockiaudayan</a>
+                    <a href="" class="font-weight-bold" target="_blank">@prakash</a> &amp;
+                    <a style="color: #252f40;" href="" class="font-weight-bold ml-1" target="_blank">@udayan</a>
                 </div>
             </div>
         </div>

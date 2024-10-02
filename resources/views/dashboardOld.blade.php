@@ -2,7 +2,15 @@
 
 @section('content')
     <div>
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="board" id="btnradio1Dashboard" autocomplete="off" checked>
+            <label class="btn btn-outline-primary btn-sm" for="btnradio1Dashboard">Dashboard</label>
+
+            <input type="radio" class="btn-check" name="board" id="btnradio2KanbanBoard" autocomplete="off">
+            <label class="btn btn-outline-primary btn-sm" for="btnradio2KanbanBoard">Kanban Board</label>
+        </div>
         <div class="d-flex justify-content-end align-items-center">
+
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
                 <label class="btn btn-outline-secondary btn-sm" for="btnradio1">Year</label>
@@ -30,7 +38,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Pruchase</p>
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Purchase</p>
                                 <h5 class="font-weight-bolder mb-0">
                                     ₹53,000<br>
                                     <span class="text-success text-sm font-weight-bolder">00 kg</span>
@@ -39,7 +47,7 @@
                         </div>
                         <div class="col-4 text-end">
                             <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                <i class="fas fa-shopping-cart text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -61,7 +69,7 @@
                         </div>
                         <div class="col-4 text-end">
                             <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                                <i class="fas fa-cut text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -83,7 +91,7 @@
                         </div>
                         <div class="col-4 text-end">
                             <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                <i class="fas fa-box-open text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -105,7 +113,7 @@
                         </div>
                         <div class="col-4 text-end">
                             <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                <i class="fas fa-exchange-alt fa-rotate-90 text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -113,6 +121,332 @@
             </div>
         </div>
     </div>
+
+    <div class="row my-4">
+        <div class="col-lg-12 col-md-12 mb-md-0 mb-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="row">
+                        <div class="col-lg-6 col-7">
+                            <h6>Completed Batch List</h6>
+                            <p class="text-sm mb-0">
+                                <i class="fa fa-check text-info" aria-hidden="true"></i>
+                                <span class="font-weight-bold ms-1">30 done</span>
+                            </p>
+                        </div>
+                        {{-- <div class="col-lg-6 col-5 my-auto text-end">
+                            <div class="dropdown float-lg-end pe-4">
+                                <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                                </a>
+                                <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a>
+                                    </li>
+                                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else
+                                            here</a></li>
+                                </ul>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Batch_id
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Vendor code"
+                                            data-container="body" data-animation="true">S_code</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Processing Date"
+                                            data-container="body" data-animation="true">PM_D</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Receiving Date"
+                                            data-container="body" data-animation="true">RM_D</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Raw Material Quatity" data-container="body"
+                                            data-animation="true">RM_Q</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Raw Material Amount" data-container="body"
+                                            data-animation="true">₹</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cooked Quatity"
+                                            data-container="body" data-animation="true">cc_Q</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Packed Quatity"
+                                            data-container="body" data-animation="true">PA_Q</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Packed container Count Date" data-container="body"
+                                            data-animation="true">PA_CC</span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        LOSS(kg-%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">#AS12345</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">PKD45</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 840.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> ₹ 12,000 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 600.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 500.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 145 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <i class="fa fa-arrow-down text-danger" aria-hidden="true"></i>
+                                        <span class="font-weight-bold text-dark">100kg</span> -
+                                        <span class="font-weight-bold text-dark">10%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">#AS12345</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">
+                                                <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                    title="Demo Vendor Name" data-container="body"
+                                                    data-animation="true">PKD45</span>
+                                            </h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-end text-sm">
+                                        <span class="text-xs font-weight-bold"> 840.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-end text-sm">
+                                        <span class="text-xs font-weight-bold"> ₹ 12,000 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-end-bold"> 600.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-end text-sm">
+                                        <span class="text-xs font-weight-bold"> 500.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-end text-sm">
+                                        <span class="text-xs font-weight-bold"> 145 </span>
+                                    </td>
+                                    <td class="align-middle  text-sm">
+                                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+                                        <span class="font-weight-bold text-dark">0kg</span> -
+                                        <span class="font-weight-bold text-dark">0%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">#AS12345</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">PKD45</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 840.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> ₹ 12,000 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 600.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 500.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 145 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <i class="fa fa-arrow-down text-danger" aria-hidden="true"></i>
+                                        <span class="font-weight-bold text-dark">100kg</span> -
+                                        <span class="font-weight-bold text-dark">10%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">#AS12345</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">PKD45</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 840.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> ₹ 12,000 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 600.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 500.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 145 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <i class="fa fa-arrow-down text-danger" aria-hidden="true"></i>
+                                        <span class="font-weight-bold text-dark">100kg</span> -
+                                        <span class="font-weight-bold text-dark">10%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">#AS12345</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">PKD45</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 840.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> ₹ 12,000 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 600.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 500.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 145 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <i class="fa fa-arrow-down text-danger" aria-hidden="true"></i>
+                                        <span class="font-weight-bold text-dark">100kg</span> -
+                                        <span class="font-weight-bold text-dark">10%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">#AS12345</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">PKD45</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 22 DEC 2024 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 840.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> ₹ 12,000 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 600.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 500.000 kg </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="text-xs font-weight-bold"> 145 </span>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <i class="fa fa-arrow-down text-danger" aria-hidden="true"></i>
+                                        <span class="font-weight-bold text-dark">100kg</span> -
+                                        <span class="font-weight-bold text-dark">10%</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('dashboard.karbanBorad')
     <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
             <div class="card">
@@ -122,7 +456,8 @@
                             <div class="d-flex flex-column h-100">
                                 <p class="mb-1 pt-2 text-bold">Built by developers</p>
                                 <h5 class="font-weight-bolder">Soft UI Dashboard</h5>
-                                <p class="mb-5">From colors, cards, typography to complex elements, you will find the full
+                                <p class="mb-5">From colors, cards, typography to complex elements, you will find the
+                                    full
                                     documentation.</p>
                                 <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto"
                                     href="javascript:;">

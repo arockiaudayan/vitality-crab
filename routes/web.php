@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\dashboard\kanbanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\ResetController;
@@ -80,3 +82,6 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('/login', function () {
     return view('session/login-session');
 })->name('login');
+
+Route::get('dashboard', [dashboardController::class, 'index'])->name('dashboard');
+Route::get('kanban-board', [kanbanController::class, 'index'])->name('kanban-board');
