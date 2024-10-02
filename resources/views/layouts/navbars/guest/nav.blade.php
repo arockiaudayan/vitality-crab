@@ -30,6 +30,9 @@
                             <i
                                 class="fa fa-user opacity-6 me-1 {{ Request::is('static-sign-up') ? '' : 'text-dark' }}"></i>
                             Profile
+
+
+
                         </a>
                     </li>
                 @endif
