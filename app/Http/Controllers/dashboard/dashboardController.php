@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class dashboardController extends Controller
 {
@@ -16,7 +17,24 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $tab = request()->input('tab') ?? 'date';
+        $date = request()->input('date') ?? '';
+        switch ($tab) {
+            case 'date':
+                $carbonDateInput = Carbon::parse($date)->format('Y-m-d');
+                $carbonDateShow = Carbon::parse($date)->format('d-M-Y') . ', ' . Carbon::parse($date)->englishDayOfWeek;
+                break;
+            case 'month':
+                $carbonDateInput = Carbon::parse($date)->format('Y-m');
+                $carbonDateShow = Carbon::parse($date)->format('M-Y');
+                break;
+            case 'year':
+                $carbonDateInput = Carbon::parse($date)->format('Y');
+                $carbonDateShow = Carbon::parse($date)->format('Y');
+                break;
+        }
+
+        return view('dashboard.dashboard', compact('tab', 'carbonDateInput', 'carbonDateShow'));
     }
 
     /**

@@ -8,27 +8,30 @@
                     class="text-white">Dashboard</a></label>
             <a href="{{ route('kanban-board') }}" class="btn btn-outline-primary btn-sm text-primary">Kanban Board</a>
         </div>
-        <div class="d-flex justify-content-end align-items-center">
-
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                <label class="btn btn-outline-secondary btn-sm" for="btnradio1">Year</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-secondary btn-sm" for="btnradio2">Month</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
-                <label class="btn btn-outline-secondary btn-sm" for="btnradio3">Day</label>
+        <form method="GET" action="{{ route('dashboard') }}">
+            <div class="d-flex justify-content-end align-items-center">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    {{-- <a href="{{ route('kanban-board') }}" class="btn btn-outline-primary btn-sm text-primary">Kanban Board</a> --}}
+                    <button type="submit" name="tab" value="date"
+                        class="btn btn-sm {{ $tab == 'date' ? 'btn-slack' : 'btn-outline-secondary' }}">Day</button>
+                    <button type="submit" name="tab" value="month"
+                        class=" btn btn-sm {{ $tab == 'month' ? 'btn-slack' : 'btn-outline-secondary' }}">Month</button>
+                    <button type="submit" name="tab" value="year"
+                        class=" btn btn-sm {{ $tab == 'year' ? 'btn-slack' : 'btn-outline-secondary' }}">Year</button>
+                </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-            <h5 class="font-weight-bolder">
-                {{ Carbon\Carbon::now()->format('d-M-Y') }}, {{ Carbon\Carbon::now()->englishDayOfWeek }}
-            </h5>
-            <div class="mb-3">
-                <input type="date" class="form-control" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="font-weight-bolder">
+                    {{ $carbonDateShow }}
+                </h5>
+                <div class="input-group mb-3 w-25">
+                    <input type="{{ $tab == 'year' ? 'number' : $tab }}" class="form-control form-control-sm" name="date"
+                        value="{{ $carbonDateInput }}" {{ $tab == 'year' ? 'min="1900" max="2099" step="1" ' : '' }}>
+                    <button class="btn btn-dribbble btn-sm mb-0 px-3" type="submit" name="tab"
+                        value="{{ $tab }}">Get</button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
