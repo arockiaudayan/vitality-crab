@@ -29,7 +29,11 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Received Date" data-container="body"
                                     data-animation="true">RM_D : 22 DEC 2024</p>
-                                <span class="badge badge-success align-self-end mt-1">Received</span>
+                                <span class="badge badge-sm bg-gradient-success align-self-end mt-2 ">Received</span>
+                                <small class="align-self-end "><i class="text-white fw-bold " style="font-size: 8px;">--
+                                        Waiting for
+                                        Picking</i></small>
+                                <span class="badge badge-success align-self-end mt-1"></span>
                             </div>
                         </div>
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2" role="button">
@@ -42,7 +46,8 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Received Date" data-container="body"
                                     data-animation="true">RM_D : ----</p>
-                                <span class="badge badge-warning align-self-end mt-1">Not-Received</span>
+                                <span class="badge badge-sm bg-gradient-warning align-self-end mt-2 ">Not-Received</span>
+
                             </div>
                         </div>
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2" role="button">
@@ -55,10 +60,10 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Received Date" data-container="body"
                                     data-animation="true">RM_D : ----</p>
-                                <span class="badge badge-warning align-self-end mt-1">Not-Received</span>
+                                <span class="badge badge-sm bg-gradient-warning align-self-end mt-2 ">Not-Received</span>
+
                             </div>
                         </div>
-
 
                     </div>
                 </div>
@@ -84,7 +89,11 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Picking Date" data-container="body"
                                     data-animation="true">PI_D : 22 DEC 2024</p>
-                                <span class="badge badge-success align-self-end mt-1">Picked</span>
+                                <span class="badge badge-sm bg-gradient-success align-self-end mt-2 ">Picked</span>
+                                <small class="align-self-end "><i class="text-white fw-bold " style="font-size: 8px;">--
+                                        Waiting for
+                                        processing</i></small>
+
                             </div>
                         </div>
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2"
@@ -101,7 +110,8 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Picking Date" data-container="body"
                                     data-animation="true">PI_D : 22 DEC 2024</p>
-                                <span class="badge badge-warning align-self-end mt-1">Picking</span>
+                                <span class="badge badge-sm bg-gradient-warning align-self-end mt-2 ">In-Picking</span>
+
                             </div>
                         </div>
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2"
@@ -118,7 +128,8 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Picking Date" data-container="body"
                                     data-animation="true">PI_D : 22 DEC 2024</p>
-                                <span class="badge badge-warning align-self-end mt-1">Picking</span>
+                                <span class="badge badge-sm bg-gradient-warning align-self-end mt-2 ">In-Picking</span>
+
                             </div>
                         </div>
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2"
@@ -135,7 +146,8 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Picking Date" data-container="body"
                                     data-animation="true">PI_D : 22 DEC 2024</p>
-                                <span class="badge badge-warning align-self-end mt-1">Picking</span>
+                                <span class="badge badge-sm bg-gradient-warning align-self-end mt-2 ">In-Picking</span>
+
                             </div>
                         </div>
 
@@ -167,7 +179,7 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Processing Date" data-container="body"
                                     data-animation="true">PR_D : 22 DEC 2024</p>
-                                <span class="badge badge-warning align-self-end mt-1">In-Processing</span>
+                                <span class="badge badge-sm bg-gradient-warning align-self-end mt-2 ">In-Processing</span>
                             </div>
                         </div>
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2"
@@ -187,7 +199,7 @@
                                 <p class="text-white font-weight-bold text-xs mt-1 mb-0" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Processing Date" data-container="body"
                                     data-animation="true">PR_D : 22 DEC 2024</p>
-                                <span class="badge badge-secondary align-self-end mt-1">In-Complete</span>
+                                <span class="badge badge-sm bg-gradient-secondary align-self-end mt-2 ">In-Complete</span>
                             </div>
                         </div>
 
@@ -206,7 +218,7 @@
                 </div>
                 <div class="card-body p-1">
                     <div class="card h-100 p-2">
-                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2"
+                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2 "
                             role="button">
                             <span class="mask bg-gradient-dark"></span>
                             <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
@@ -229,7 +241,7 @@
                                         aria-hidden="true"></i>
                                     <span class="font-weight-bold text-white">0%</span>
                                 </p>
-                                <span class="badge badge-success align-self-end mt-1">Complete</span>
+                                <span class="badge badge-sm bg-gradient-success align-self-end mt-1 ">Complete</span>
                             </div>
                         </div>
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-auto mb-2"
@@ -255,7 +267,8 @@
                                         aria-hidden="true"></i>
                                     <span class="font-weight-bold text-white">8%</span>
                                 </p>
-                                <span class="badge badge-success align-self-end mt-1">Completed</span>
+                                <span class="badge badge-sm bg-gradient-success align-self-end mt-1 ">Complete</span>
+
                             </div>
                         </div>
 
