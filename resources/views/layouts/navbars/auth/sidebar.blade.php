@@ -289,6 +289,7 @@
                         class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
                 </div>
             </div>
+
         </div>
     </div> --}}
 </aside>
