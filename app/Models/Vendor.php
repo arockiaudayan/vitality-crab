@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Vendor extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $guarded = [];
+
+    public static function index()
+    {
+        return self::where('deleted_at', null)->get();
+    }
 }

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cc_zones', function (Blueprint $table) {
+        Schema::create('batches', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->bigInteger('added_user_id')->nullable();
+            $table->date('date');
+            $table->string('batch_code', 255);
+            $table->bigInteger('purchase_id');
+            $table->bigInteger('added_user_id');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cc_zones');
+        Schema::dropIfExists('batches');
     }
 };
