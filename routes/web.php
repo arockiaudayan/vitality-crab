@@ -5,13 +5,10 @@ use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\kanbanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
+use App\Http\Controllers\purchase\purchaseController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
-
 use App\Http\Controllers\UserManagementController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,9 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('rtl');
     })->name('rtl');
 
-
-	Route::get('user-management', [UserManagementController::class, 'manage'])->name('user-management');
-
+    Route::get('user-management', [UserManagementController::class, 'manage'])->name('user-management');
 
     Route::get('tables', function () {
         return view('tables');
@@ -89,4 +84,8 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('dashboard', [dashboardController::class, 'index'])->name('dashboard');
+
 Route::get('kanban-board', [kanbanController::class, 'index'])->name('kanban-board');
+
+Route::get('purchase/purchase-list', [purchaseController::class, 'index'])->name('purchase/purchase-list');
+Route::get('purchase/xhr/purchase-list/add', [purchaseController::class, 'store'])->name('purchase/xhr/purchase-list/add');

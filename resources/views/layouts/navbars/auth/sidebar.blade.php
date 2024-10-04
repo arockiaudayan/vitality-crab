@@ -18,7 +18,7 @@
             [0, 'User Management', 'link', 'fa-users', 'user-management', 'user-management'],
 
             [[0, 0, 0], 'Flow Managent', 'heading'],
-            [0, 'Purchase', 'link', 'fa-shopping-cart', 'tables', 'tables'],
+            [0, 'Purchase', 'link', 'fa-shopping-cart', 'purchase/purchase-list', 'purchase'],
             [0, 'Pick', 'link', 'fa-cut', 'billing', 'billing'],
             [0, 'Processing', 'link', 'fa-box-open', 'billing', 'billing'],
             [0, 'Tally', 'link', 'fa-exchange-alt fa-rotate-90', 'billing', 'billing'],

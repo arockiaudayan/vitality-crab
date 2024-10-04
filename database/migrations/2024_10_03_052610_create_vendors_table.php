@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('source_code');
             $table->bigInteger('added_user_id')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

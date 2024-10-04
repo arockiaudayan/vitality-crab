@@ -45,6 +45,32 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
     <link id="pagestyle-min" href="{{ asset('assets/css/soft-ui-dashboard.min.css?v=1.0.3') }}" rel="stylesheet" />
+
+    <!-- js Files -->
+    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/multistep-form.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/countup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/flatpickr.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
+
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 
 <body
@@ -63,17 +89,10 @@
         </div>
     @endif
     <!--   Core JS Files   -->
+    <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/fullcalendar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/multistep-form.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/datatables.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/countup.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/flatpickr.min.js') }}"></script>
+
     @stack('rtl')
     @stack('dashboard')
     <script>

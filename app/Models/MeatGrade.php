@@ -9,4 +9,8 @@ class MeatGrade extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public static function index()
+    {
+        return self::where('deleted_at', null)->get();
+    }
 }

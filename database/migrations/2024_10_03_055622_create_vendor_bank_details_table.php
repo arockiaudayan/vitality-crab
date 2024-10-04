@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('acc_no', 255)->nullable();
             $table->string('ifsc_code', 255)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

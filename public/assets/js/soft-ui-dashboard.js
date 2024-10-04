@@ -23,6 +23,10 @@
       var fixedplugin = document.querySelector('.fixed-plugin');
       var ps3 = new PerfectScrollbar(fixedplugin);
     };
+    if (document.getElementsByClassName('modal-dialog')[0]) {
+      var fixedplugin = document.querySelector('.fixed-plugin');
+      var ps3 = new PerfectScrollbar(fixedplugin);
+    };
   };
 })();
 
