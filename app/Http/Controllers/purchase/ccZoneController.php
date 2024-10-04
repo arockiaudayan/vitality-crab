@@ -3,16 +3,28 @@
 namespace App\Http\Controllers\purchase;
 
 use App\Http\Controllers\Controller;
+use App\Models\CcZone;
 use Illuminate\Http\Request;
 
 class ccZoneController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(middleware: 'auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        if (!in_array(needle: 0, haystack: [0])) {
+            return redirect(to: '/dashboard');
+        }
+        $tab = request()->input('tab') ?? 1;
+
+        $lists = CcZone::index();
+
+        return view('purchase.pages.vendor', compact('lists', 'tab'));
     }
 
     /**

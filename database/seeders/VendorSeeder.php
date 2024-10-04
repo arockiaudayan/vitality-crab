@@ -16,45 +16,49 @@ class VendorSeeder extends Seeder
         Vendor::create(attributes: [
             'id' => 1,
             'company_name' => 'Bednar Group',
-            'GST' => null,
+            'gst' => null,
             'phone' => '98-3727510',
             'email' => 'jettie.streich@stroman.info	',
             'owner_name' => 'peter',
             'pan_no' => null,
             'source_code' => 'BG01',
+            'status' => 1,
             'added_user_id' => 1,
         ]);
         Vendor::create(attributes: [
             'id' => 2,
             'company_name' => 'Connell and Sons',
-            'GST' => null,
+            'gst' => null,
             'phone' => '42-9366835',
             'email' => 'nmraz@lockman.com',
             'owner_name' => 'john',
             'pan_no' => '8016442318016',
             'source_code' => 'OS25',
+            'status' => 1,
             'added_user_id' => 1,
         ]);
         Vendor::create(attributes: [
             'id' => 3,
             'company_name' => 'Nikolaus LLC',
-            'GST' => 'GST80-1644231',
+            'gst' => 'GST80-1644231',
             'phone' => null,
             'email' => null,
             'owner_name' => 'Niko',
             'pan_no' => null,
             'source_code' => 'NL05',
+            'status' => 1,
             'added_user_id' => 1,
         ]);
         Vendor::create(attributes: [
             'id' => 4,
             'company_name' => 'Walker Ltd',
-            'GST' => null,
+            'gst' => null,
             'phone' => null,
             'email' => null,
             'owner_name' => 'Walker',
             'pan_no' => '06-9738913',
             'source_code' => 'WL01',
+            'status' => 1,
             'added_user_id' => 1,
         ]);
     }

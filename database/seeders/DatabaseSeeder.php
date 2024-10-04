@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             VendorBankDetailSeeder::class,
             MeatGradeSeeder::class,
             CcZoneSeeder::class,
+            PurchaseDetailSeeder::class,
+            BatchSeeder::class,
+            BatchStatusSeeder::class,
 
         ]);
     }
