@@ -47,16 +47,22 @@
     <link id="pagestyle-min" href="{{ asset('assets/css/soft-ui-dashboard.min.css?v=1.0.3') }}" rel="stylesheet" />
 
     <!-- js Files -->
+    <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/multistep-form.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/countup.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/flatpickr.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
+
+    <!-- dataTables Files -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
     <style>
         /* Chrome, Safari, Edge, Opera */
@@ -89,9 +95,7 @@
         </div>
     @endif
     <!--   Core JS Files   -->
-    <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+
 
     @stack('rtl')
     @stack('dashboard')

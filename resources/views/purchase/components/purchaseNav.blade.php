@@ -3,16 +3,17 @@
         class="btn {{ $tab == 0 ? 'btn-primary text-white disabled' : 'btn-outline-primary text-primary' }} btn-sm">
         Purchase List
     </a>
-    <a href="{{ route('purchase/purchase-list') }}"
+    <a href="{{ route('purchase/vendor-list') }}"
         class="btn {{ $tab == 1 ? 'btn-primary text-white disabled' : 'btn-outline-primary text-primary' }} btn-sm">
         Vendor List
+    </a>
+    <a href="{{ route('purchase/cooking-zone-list') }}"
+        class="btn {{ $tab == 3 ? 'btn-primary text-white disabled' : 'btn-outline-primary text-primary' }} btn-sm">
+        Cooking Zone List
     </a>
     <a href="{{ route('purchase/purchase-list') }}"
         class="btn {{ $tab == 2 ? 'btn-primary text-white disabled' : 'btn-outline-primary text-primary' }} btn-sm">
         Meat Grade List
     </a>
-    <a href="{{ route('purchase/purchase-list') }}"
-        class="btn {{ $tab == 3 ? 'btn-primary text-white disabled' : 'btn-outline-primary text-primary' }} btn-sm">
-        Cooking Zone List
-    </a>
+
 </div>

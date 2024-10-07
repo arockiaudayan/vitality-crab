@@ -5,7 +5,9 @@ use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\kanbanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
+use App\Http\Controllers\purchase\ccZoneController;
 use App\Http\Controllers\purchase\purchaseController;
+use App\Http\Controllers\purchase\vendorController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserManagementController;
@@ -88,4 +90,8 @@ Route::get('dashboard', [dashboardController::class, 'index'])->name('dashboard'
 Route::get('kanban-board', [kanbanController::class, 'index'])->name('kanban-board');
 
 Route::get('purchase/purchase-list', [purchaseController::class, 'index'])->name('purchase/purchase-list');
-Route::get('purchase/xhr/purchase-list/add', [purchaseController::class, 'store'])->name('purchase/xhr/purchase-list/add');
+Route::post('purchase/xhr/purchase-list/add', [purchaseController::class, 'store'])->name('purchase/xhr/purchase-list/add');
+
+Route::get('purchase/vendor-list', [vendorController::class, 'index'])->name('purchase/vendor-list');
+
+Route::get('purchase/cooking-zone-list', [ccZoneController::class, 'index'])->name('cooking-zone-list');

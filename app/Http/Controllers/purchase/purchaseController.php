@@ -32,7 +32,7 @@ class purchaseController extends Controller
 
         $lists = PurchaseDetail::whereBetween('purchase_date', [$from, $to])->get();
 
-        return view('purchase.pages.purchase', compact('tab', 'from', 'to'));
+        return view('purchase.pages.purchase', compact('tab', 'from', 'to', 'lists'));
     }
 
     /**

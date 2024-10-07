@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\purchase;
 
 use App\Http\Controllers\Controller;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 
 class vendorController extends Controller
@@ -20,6 +21,11 @@ class vendorController extends Controller
         if (!in_array(needle: 0, haystack: [0])) {
             return redirect(to: '/dashboard');
         }
+        $tab = request()->input('tab') ?? 1;
+
+        $lists = Vendor::index();
+
+        return view('purchase.pages.vendor', compact('lists', 'tab'));
     }
 
     /**

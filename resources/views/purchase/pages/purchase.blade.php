@@ -2,6 +2,7 @@
 
 @section('content')
     @include('purchase.components.purchaseNav')
+
     <div class="card mb-4 px-4 py-2">
         <div class="card-body p-2 ">
             <form method="GET" action="{{ route('purchase/purchase-list') }}" class="w-100 p-0">
@@ -64,29 +65,162 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0">
-                    <h6>Authors table</h6>
+                <div class="card-header d-flex align-items-center pb-0">
+                    <h6 class="d-inline-block">Purchase List</h6>
+                    <ul class="list-group list-group-horizontal ms-3">
+                        <li class="list-group-item fw-bold">Total</li>
+                        <li class="list-group-item">
+                            <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Raw material Quantity"
+                                data-container="body" data-animation="true">
+                                RM-Q
+                            </span> -
+                            <p class="text-xs font-weight-bold mb-0 d-inline">
+                                {{ $lists->sum('rm_quantity') }} kg</p>
+                        </li>
+                        <li class="list-group-item"> <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                title="Cooked material Quantity" data-container="body" data-animation="true">
+                                CC-Q
+                            </span> -
+                            <p class="text-xs font-weight-bold mb-0 d-inline">
+                                {{ $lists->sum('cc_quantity') }} kg</p>
+                        </li>
+                        <li class="list-group-item"> <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                title="Total Amount" data-container="body" data-animation="true">
+                                Tol-₹
+                            </span> -
+                            <p class="text-xs font-weight-bold mb-0 d-inline">
+                                ₹{{ $lists->sum('amount') }}</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2">
+                <div class="card-body px-2 pt-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0" id="myTable" class="display">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Purchase material Date" data-container="body" data-animation="true">
+                                            PM-D
+                                        </span>
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Function</th>
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Received material Date" data-container="body" data-animation="true">
+                                            RM-D
+                                        </span>
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Purchase Code"
+                                            data-container="body" data-animation="true">
+                                            P-Code
+                                        </span>
+                                    </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Status</th>
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Source Code"
+                                            data-container="body" data-animation="true">
+                                            S-code
+                                        </span>
+                                    </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Employed</th>
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Batch Code"
+                                            data-container="body" data-animation="true">
+                                            Batch_id
+                                        </span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Grade"
+                                            data-container="body" data-animation="true">
+                                            Grade
+                                        </span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Raw material Quantity" data-container="body" data-animation="true">
+                                            RM-Q
+                                        </span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Cooked material Quantity" data-container="body" data-animation="true">
+                                            CC-Q
+                                        </span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="Raw material Rate per KG" data-container="body" data-animation="true">
+                                            RM-per-₹
+                                        </span>
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Total Amount"
+                                            data-container="body" data-animation="true">
+                                            Tol-₹
+                                        </span>
+                                    </th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                @foreach ($lists as $purchase)
+                                    <tr>
+                                        <td class="align-middle text-center">
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold">{{ Carbon\Carbon::parse($purchase->purchase_date)->format('d-M-Y') }}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold">{{ $purchase->received_date != null ? Carbon\Carbon::parse($purchase->received_date)->format('d-M-Y') : '------' }}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $purchase->purchase_code }}</p>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                    title="{{ App\Models\Vendor::find($purchase->vendor_id)->company_name }}"
+                                                    data-container="body" data-animation="true">
+                                                    {{ App\Models\Vendor::find($purchase->vendor_id)->source_code }}
+                                                </span>
+                                            </p>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ $purchase->BatchDetail->batch_code }}</p>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ App\Models\MeatGrade::find($purchase->grade_id)->name }}</p>
+                                        </td>
+                                        <td class="align-middle text-end">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ $purchase->rm_quantity }} kg</p>
+                                        </td>
+                                        <td class="align-middle text-end">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ $purchase->cc_quantity }} kg</p>
+                                        </td>
+                                        <td class="align-middle text-end">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                ₹{{ $purchase->rm_per_rate }}</p>
+                                        </td>
+                                        <td class="align-middle text-end">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                ₹{{ $purchase->amount }}</p>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            {!! App\Models\BatchStatus::getStatus($purchase->BatchDetail->id) !!}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                {{-- <tr>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div>
@@ -265,7 +399,7 @@
                                             Edit
                                         </a>
                                     </td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -282,7 +416,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form enctype="multipart/form-data" onsubmit="addPurchaseModalform(this)" id="addPurchaseModal-Form">
+                    <form enctype="multipart/form-data" onsubmit="return addPurchaseModalform(this)"
+                        id="addPurchaseModal-Form">
                         @csrf
                         <div class="row">
                             <div class="form-group col-12 col-lg-6">
@@ -387,7 +522,7 @@
                     <button type="submit" id="addPurchaseModal-BtnSubmit" form="addPurchaseModal-Form"
                         class="btn btn-primary">Add
                         Purchase</button>
-                    <button type="button" class="btn btn-success d-none" disabled>
+                    <button type="button" class="btn btn-primary d-none" disabled>
                         Adding...
                         <i class="fas fa-spinner fa-spin fa-lg h-auto w-auto"></i>
                     </button>
@@ -472,11 +607,45 @@
 
                 return false;
             }
-        </script>
+        </script>{{-- add purchase form submit end here --}}
     </div>
+    <script src="https://cdn.datatables.net/buttons/3.1.2/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.print.min.js"></script>
 
     <script>
-        const select = new Choices('#addPurchaseModal-vendor');
-        const select1 = new Choices('#addPurchaseModal-cczone');
+        $(document).ready(function() {
+            const select = new Choices('#addPurchaseModal-vendor');
+            const select1 = new Choices('#addPurchaseModal-cczone');
+
+            let table = new DataTable('#myTable', {
+                caption: `purchase report on ${new Date().toLocaleString()}`,
+                layout: {
+                    topStart: {
+                        buttons: [{
+                                extend: 'excelHtml5',
+                                title: `purchase report from {{ Carbon\Carbon::parse($from)->format('d-M-Y') }} to {{ Carbon\Carbon::parse($to)->format('d-M-Y') }}`
+                            },
+                            {
+                                extend: 'pdfHtml5',
+                                title: `purchase report from {{ Carbon\Carbon::parse($from)->format('d-M-Y') }} to {{ Carbon\Carbon::parse($to)->format('d-M-Y') }}`
+                            },
+                            {
+                                extend: 'print',
+                                title: `purchase report from {{ Carbon\Carbon::parse($from)->format('d-M-Y') }} to {{ Carbon\Carbon::parse($to)->format('d-M-Y') }}`
+                            },
+                        ]
+                    }
+                },
+                "lengthMenu": [
+                    [100, "All", 50, 25],
+                    [100, "All", 50, 25]
+                ]
+            });
+        });
     </script>
 @endsection
